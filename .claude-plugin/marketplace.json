@@ -1,0 +1,14 @@
+{
+  "name": "my-growthmastery",
+  "owner": {
+    "name": "GrowthMastery",
+    "url": "https://growthmastery.ai"
+  },
+  "plugins": [
+    {
+      "name": "gm-cro-agent",
+      "source": "./",
+      "description": "Your own CRO, inside Claude — a growth operator that already knows your business. Diagnoses funnels, coaches sales calls, scores channels, and names the one next move."
+    }
+  ]
+}

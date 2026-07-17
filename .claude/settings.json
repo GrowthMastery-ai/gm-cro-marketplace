@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "mcp_tool",
+            "server": "gm-cro",
+            "tool": "get_cross_session_digest",
+            "input": { "exclude_session_id": "${session_id}" }
+          },
+          {
+            "type": "mcp_tool",
+            "server": "gm-cro",
+            "tool": "get_team_context",
+            "input": {}
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "mcp_tool",
+            "server": "gm-cro",
+            "tool": "ingest_turn",
+            "input": { "event": "UserPromptSubmit", "session_id": "${session_id}" }
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "mcp_tool",
+            "server": "gm-cro",
+            "tool": "ingest_turn",
+            "input": {
+              "event": "PostToolUse",
+              "session_id": "${session_id}",
+              "tool": "${tool_name}"
+            }
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "mcp_tool",
+            "server": "gm-cro",
+            "tool": "ingest_turn",
+            "input": { "event": "Stop", "session_id": "${session_id}" }
+          }
+        ]
+      }
+    ]
+  }
+}

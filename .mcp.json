@@ -1,0 +1,9 @@
+{
+  "// NOTE": "The gm-cro-agent plugin binds ONE hosted connector: the GrowthMastery CRO Engine over HTTP MCP with interactive OAuth. There are NO tokens in this file — on first use Claude runs the OAuth consent flow against GrowthMastery's authorization server (discovered from /.well-known/oauth-protected-resource) and stores the grant itself. The Intelligence Engine executes the rubric server-side; the thin skills and commands in this plugin only CALL the connector — nothing rubric-bearing ever lands on your machine (go-live plan sections 0 and 1).",
+  "mcpServers": {
+    "gm-cro": {
+      "type": "http",
+      "url": "https://app.growthmastery.ai/api/mcp/mcp"
+    }
+  }
+}
