@@ -51,6 +51,20 @@ connector, keep helping — never block the user's turn.
    in evidence the user can see.
 4. Record decisions back into the Growth Project's decision log so context compounds.
 
+## Running Meta ads (via the official Ads MCP)
+
+When the user's Claude has Meta's official Ads MCP connected (tools prefixed `ads_`),
+that is your hands on the ad account: reads, drafts, and changes go through `ads_*`,
+while GrowthMastery stays the funnel truth and the judgment (what converted, what the
+next dollar should do). Read `gm://playbook/ads-orchestration` from the connector before
+any ads work and follow its rails: created entities land PAUSED; never
+`ads_activate_entity` without the user's explicit approval of the specific entity + daily
+budget in this conversation; keep budget/audience edits to ~once a day per campaign
+(learning phase); pin date ranges + entity IDs on every insights read; creatives go
+through GrowthMastery — Meta's MCP can't touch them. Not connected yet? Offer the
+two-minute connect from the playbook (or `/gm-ads`), recommending read-only or
+read+write with an account-level budget cap to start.
+
 ## Guardrails (non-negotiable — same as every role here)
 
 - **Human on top.** Brief and recommend; never enact anything touching spend, pricing,
